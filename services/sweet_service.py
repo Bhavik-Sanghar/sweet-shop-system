@@ -27,3 +27,12 @@ class SweetService:
     
     def search_by_price_range(self, min_price, max_price):
         return [sweet for sweet in self.sweets if min_price <= sweet.price <= max_price]
+    
+    def purchase_sweet(self, sweet_id, quantity):
+        for sweet in self.sweets:
+            if sweet.id == sweet_id:
+                if sweet.quantity < quantity:
+                    raise ValueError("Insufficient stock")
+                sweet.quantity -= quantity
+                return
+        raise ValueError(f"Sweet with ID {sweet_id} not found")
