@@ -1,9 +1,9 @@
 class SweetService:
     def __init__(self):
-        pass
+        self.sweets = []
 
     def add_sweet(self, sweet):
-        pass
+        self.sweets.append(sweet)
 
     def get_all_sweets(self):
-        return []
+        return self.sweets
