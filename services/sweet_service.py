@@ -9,7 +9,12 @@ class SweetService:
         return self.sweets
     
     def delete_sweet(self, sweet_id):
-        self.sweets = [s for s in self.sweets if s.id != sweet_id]
+        for sweet in self.sweets:
+            if sweet.id == sweet_id:
+                self.sweets.remove(sweet)
+                return
+        raise ValueError(f"Sweet with ID {sweet_id} not found")
+
 
     def search_by_name(self, keyword):
         return [sweet for sweet in self.sweets if keyword.lower() in sweet.name.lower()]
