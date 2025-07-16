@@ -70,3 +70,12 @@ def test_delete_sweet_invalid_id_raises_error():
     with pytest.raises(ValueError, match="Sweet with ID 9999 not found"):
         service.delete_sweet(9999)
 
+def test_add_duplicate_id_raises_error():
+    service = SweetService()
+    sweet1 = Sweet(1001, "Kaju Katli", "Nut-Based", 50.0, 20)
+    sweet2 = Sweet(1001, "Rasgulla", "Milk-Based", 25.0, 10)
+
+    service.add_sweet(sweet1)
+    with pytest.raises(ValueError, match="Sweet with ID 1001 already exists"):
+        service.add_sweet(sweet2)
+

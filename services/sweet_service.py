@@ -3,7 +3,10 @@ class SweetService:
         self.sweets = []
 
     def add_sweet(self, sweet):
+        if any(s.id == sweet.id for s in self.sweets):
+            raise ValueError(f"Sweet with ID {sweet.id} already exists")
         self.sweets.append(sweet)
+
 
     def get_all_sweets(self):
         return self.sweets
