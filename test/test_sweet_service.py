@@ -61,3 +61,12 @@ def test_search_sweets_by_price_range():
 
     assert len(results) == 2
     assert all(25.0 <= sweet.price <= 50.0 for sweet in results)
+    
+
+def test_delete_sweet_invalid_id_raises_error():
+    service = SweetService()
+    service.add_sweet(Sweet(1001, "Kaju Katli", "Nut-Based", 50.0, 20))
+
+    with pytest.raises(ValueError, match="Sweet with ID 9999 not found"):
+        service.delete_sweet(9999)
+
