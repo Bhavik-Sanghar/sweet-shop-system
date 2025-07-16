@@ -45,3 +45,12 @@ class SweetService:
                 sweet.quantity += quantity
                 return
         raise ValueError(f"Sweet with ID {sweet_id} not found")
+
+    def sort_by_name(self):
+        return sorted(self.sweets, key=lambda sweet: sweet.name.lower())
+    
+    def sort_by_price(self, descending=False):
+        return sorted(self.sweets, key=lambda sweet: sweet.price, reverse=descending)
+
+    def sort_by_quantity(self, descending=False):
+        return sorted(self.sweets, key=lambda sweet: sweet.quantity, reverse=descending) 
