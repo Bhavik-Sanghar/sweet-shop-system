@@ -13,3 +13,6 @@ class SweetService:
 
     def search_by_name(self, keyword):
         return [sweet for sweet in self.sweets if keyword.lower() in sweet.name.lower()]
+
+    def search_by_category(self, category):
+        return [sweet for sweet in self.sweets if sweet.category.strip().lower() == category.strip().lower()]

@@ -50,3 +50,14 @@ def test_search_sweets_by_category():
 
     assert len(results) == 2
     assert all("Nut-Based" in sweet.category for sweet in results)
+    
+def test_search_sweets_by_price_range():
+    service = SweetService()
+    service.add_sweet(Sweet(1001, "Kaju Katli", "Nut-Based", 50.0, 20))
+    service.add_sweet(Sweet(1002, "Gulab Jamun", "Milk-Based", 30.0, 10))
+    service.add_sweet(Sweet(1003, "Peda", "Milk-Based", 20.0, 5))
+
+    results = service.search_by_price_range(25.0, 50.0)
+
+    assert len(results) == 2
+    assert all(25.0 <= sweet.price <= 50.0 for sweet in results)
