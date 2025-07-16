@@ -79,3 +79,65 @@ def test_add_duplicate_id_raises_error():
     with pytest.raises(ValueError, match="Sweet with ID 1001 already exists"):
         service.add_sweet(sweet2)
 
+def test_purchase_sweet_reduces_quantity():
+    service = SweetService()
+    service.add_sweet(Sweet(1001, "Kaju Katli", "Nut-Based", 50.0, 10))
+
+    service.purchase_sweet(1001, 4)
+    all_sweets = service.get_all_sweets()
+
+    assert all_sweets[0].quantity == 6
+
+def test_restock_sweet_increases_quantity():
+    service = SweetService()
+    service.add_sweet(Sweet(1001, "Kaju Katli", "Nut-Based", 50.0, 5))
+
+    service.restock_sweet(1001, 10)
+    all_sweets = service.get_all_sweets()
+
+    assert all_sweets[0].quantity == 15
+
+    
+def test_sort_sweets_by_name():
+    service = SweetService()
+    service.add_sweet(Sweet(1003, "Peda", "Milk-Based", 20.0, 5))
+    service.add_sweet(Sweet(1001, "Barfi", "Milk-Based", 40.0, 10))
+    service.add_sweet(Sweet(1002, "Gulab Jamun", "Milk-Based", 30.0, 15))
+
+    sorted_sweets = service.sort_by_name()
+    sorted_names = [sweet.name for sweet in sorted_sweets]
+
+    assert sorted_names == ["Barfi", "Gulab Jamun", "Peda"]
+
+def test_sort_sweets_by_price_ascending():
+    service = SweetService()
+    service.add_sweet(Sweet(1001, "Barfi", "Milk-Based", 40.0, 10))
+    service.add_sweet(Sweet(1002, "Peda", "Milk-Based", 20.0, 5))
+    service.add_sweet(Sweet(1003, "Gulab Jamun", "Milk-Based", 30.0, 15))
+
+    sorted_sweets = service.sort_by_price()
+    sorted_prices = [sweet.price for sweet in sorted_sweets]
+
+    assert sorted_prices == [20.0, 30.0, 40.0]
+
+def test_sort_sweets_by_price_descending():
+    service = SweetService()
+    service.add_sweet(Sweet(1001, "Barfi", "Milk-Based", 40.0, 10))
+    service.add_sweet(Sweet(1002, "Peda", "Milk-Based", 20.0, 5))
+    service.add_sweet(Sweet(1003, "Gulab Jamun", "Milk-Based", 30.0, 15))
+
+    sorted_sweets = service.sort_by_price(descending=True)
+    sorted_prices = [sweet.price for sweet in sorted_sweets]
+
+    assert sorted_prices == [40.0, 30.0, 20.0]
+    
+def test_sort_sweets_by_quantity_descending():
+    service = SweetService()
+    service.add_sweet(Sweet(1001, "Peda", "Milk-Based", 20.0, 5))
+    service.add_sweet(Sweet(1002, "Barfi", "Milk-Based", 30.0, 15))
+    service.add_sweet(Sweet(1003, "Gulab Jamun", "Milk-Based", 25.0, 10))
+
+    sorted_sweets = service.sort_by_quantity(descending=True)
+    sorted_quantities = [sweet.quantity for sweet in sorted_sweets]
+
+    assert sorted_quantities == [15, 10, 5]
