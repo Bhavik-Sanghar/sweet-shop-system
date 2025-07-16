@@ -36,3 +36,12 @@ class SweetService:
                 sweet.quantity -= quantity
                 return
         raise ValueError(f"Sweet with ID {sweet_id} not found")
+
+    def restock_sweet(self, sweet_id, quantity):
+        for sweet in self.sweets:
+            if sweet.id == sweet_id:
+                if quantity <= 0:
+                    raise ValueError("Restock quantity must be positive")
+                sweet.quantity += quantity
+                return
+        raise ValueError(f"Sweet with ID {sweet_id} not found")
