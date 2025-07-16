@@ -86,9 +86,9 @@ You can view the test report here:
 
 
 🖼️ Frontend Screenshots
-![Alt text](Images\1.png)
-![Alt text](Images\2.png)
-![Alt text](Images\3.png)
+![Alt text](Images/1.png)
+![Alt text](Images/2.png)
+![Alt text](Images/3.png)
 
 
 
