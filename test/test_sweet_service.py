@@ -26,3 +26,16 @@ def test_delete_sweet_by_id():
     all_sweets = service.get_all_sweets()
 
     assert len(all_sweets) == 0
+    
+
+def test_search_sweets_by_name_partial_match():
+    service = SweetService()
+    service.add_sweet(Sweet(1001, "Kaju Roll", "Nut-Based", 50.0, 20))
+    service.add_sweet(Sweet(1002, "Gulab Jamun", "Milk-Based", 30.0, 10))
+    service.add_sweet(Sweet(1003, "Kaju Pista Roll", "Nut-Based", 40.0, 15))
+
+    results = service.search_by_name("Roll")
+
+    assert len(results) == 2
+    assert all("Roll" in sweet.name for sweet in results)
+
