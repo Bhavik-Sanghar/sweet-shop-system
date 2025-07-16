@@ -39,3 +39,14 @@ def test_search_sweets_by_name_partial_match():
     assert len(results) == 2
     assert all("Roll" in sweet.name for sweet in results)
 
+def test_search_sweets_by_category():
+    service = SweetService()
+    service.add_sweet(Sweet(1001, "Kaju Katli", "Nut-Based", 50.0, 20))
+    service.add_sweet(Sweet(1002, "Gulab Jamun", "Milk-Based", 30.0, 10))
+    service.add_sweet(Sweet(1003, "Kaju Pista Roll", "Nut-Based", 40.0, 15))
+    service.add_sweet(Sweet(1004, "Rasgulla", "Milk-Based", 25.0, 5))
+    
+    results = service.search_by_category("Nut-Based")
+
+    assert len(results) == 2
+    assert all("Nut-Based" in sweet.category for sweet in results)
