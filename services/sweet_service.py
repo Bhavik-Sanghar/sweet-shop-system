@@ -10,3 +10,6 @@ class SweetService:
     
     def delete_sweet(self, sweet_id):
         self.sweets = [s for s in self.sweets if s.id != sweet_id]
+
+    def search_by_name(self, keyword):
+        return [sweet for sweet in self.sweets if keyword.lower() in sweet.name.lower()]
