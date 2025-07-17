@@ -92,7 +92,16 @@ You can view the test report here:
 ![Alt text](Images/3.png)
 
 
+- **Phase 2**: 
+  - AI-assisted enhancement for production readiness
+  - Expanded test coverage from 15 to 45+ test cases
+  - Added comprehensive input validation
+  - Improved error handling and documentation
+  - Added utility features for better usability
 
+## AI Usage
+This project leverages AI tools for code enhancement and best practice implementation, 
+following Incubyte's AI-first approach. 🙂
 
 
 🙌 Author & Notes
