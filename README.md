@@ -26,7 +26,7 @@ To improve production-readiness and simulate real-world complexity:
 - 🛠️ Error handling for invalid operations (e.g. duplicate ID, invalid restock/purchase)
 - 🔄 More edge cases tested with pytest.raises
 - 🧪 Better assertion coverage
-- 📄 Branch: extended-tests-ai contains these changes
+- 📄 Branch: ai-enhanced-version contains these changes
 
 ## ✨ Features
 
