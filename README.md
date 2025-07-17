@@ -47,6 +47,7 @@ sweet-shop-system/
 ```
 
 ---
+- **Phase 1**: Initial TDD implementation 
 
 ## ⚙️ Setup Instructions
 
@@ -100,3 +101,14 @@ Made with 💻 and ☕ by Bhavik
 This project was built for the Incubyte TDD assessment challenge.
 
 Feel free to fork, explore, and improve.
+
+- **Phase 2**: 
+  - AI-assisted enhancement for production readiness
+  - Expanded test coverage from 15 to 45+ test cases
+  - Added comprehensive input validation
+  - Improved error handling and documentation
+  - Added utility features for better usability
+
+## AI Usage
+This project leverages AI tools for code enhancement and best practice implementation, 
+following Incubyte's AI-first approach. 
