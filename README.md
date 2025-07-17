@@ -3,6 +3,30 @@
 A modern, minimal sweet shop inventory and management system built using **Python** and **Streamlit**, developed with a strict **Test-Driven Development (TDD)** approach.
 
 ---
+## 🔁 Branches
+Branch	Description
+- main	Clean TDD-first solution ✅
+- extended-tests-ai	AI-enhanced test coverage  🤖
+  -- To check out the AI-enhanced version:
+```
+  git checkout ai-enhanced-version
+```
+### 🚦 Project Phases
+## ✅ Phase 1: TDD-Driven Core
+- Developed using the Red-Green-Refactor cycle
+- Core features tested: add, delete, search, sort, purchase, restock
+- Validations and error handling added based on observed behavior
+- Streamlit UI built around the tested service layer
+
+## 🤖 Phase 2: AI-Assisted Enhancements
+To improve production-readiness and simulate real-world complexity:
+
+- 🧠 Extended test suite to 45+ test cases
+- 📌 Input validation for negative/zero values
+- 🛠️ Error handling for invalid operations (e.g. duplicate ID, invalid restock/purchase)
+- 🔄 More edge cases tested with pytest.raises
+- 🧪 Better assertion coverage
+- 📄 Branch: extended-tests-ai contains these changes
 
 ## ✨ Features
 
@@ -92,16 +116,9 @@ You can view the test report here:
 ![Alt text](Images/3.png)
 
 
-- **Phase 2**: 
-  - AI-assisted enhancement for production readiness
-  - Expanded test coverage from 15 to 45+ test cases
-  - Added comprehensive input validation
-  - Improved error handling and documentation
-  - Added utility features for better usability
-
-## AI Usage
-This project leverages AI tools for code enhancement and best practice implementation, 
-following Incubyte's AI-first approach. 🙂
+## 🤖 AI Usage
+This project follows Incubyte's AI-first philosophy.
+AI tools (like ChatGPT, Claude AI) were used in Phase 2 to enhance test coverage and simulate a more production-ready version.
 
 
 🙌 Author & Notes
