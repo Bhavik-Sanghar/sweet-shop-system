@@ -257,6 +257,7 @@ with tab1:
                     service.add_sweet(sweet)
                     st.success(f"✅ {name} added successfully!")
                     st.balloons()
+                    st.rerun()
                 except ValueError as e:
                     st.error(f"🚫 {str(e)}")
     

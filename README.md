@@ -83,6 +83,7 @@ Test cases were written before implementation using TDD.
 Here’s a preview of the report:
 You can view the test report here:  
 👉 [test_report.html](test_report.html)
+[Report](Images/4.png)
 
 
 🖼️ Frontend Screenshots
