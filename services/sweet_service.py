@@ -3,9 +3,14 @@ class SweetService:
         self.sweets = []
 
     def add_sweet(self, sweet):
+        if sweet.price <= 0:
+            raise ValueError("Price must be positive")
+        if sweet.quantity <= 0:
+            raise ValueError("Quantity must be positive")
         if any(s.id == sweet.id for s in self.sweets):
             raise ValueError(f"Sweet with ID {sweet.id} already exists")
         self.sweets.append(sweet)
+
 
 
     def get_all_sweets(self):
@@ -29,6 +34,8 @@ class SweetService:
         return [sweet for sweet in self.sweets if min_price <= sweet.price <= max_price]
     
     def purchase_sweet(self, sweet_id, quantity):
+        if quantity <= 0:
+            raise ValueError("Purchase quantity must be positive")
         for sweet in self.sweets:
             if sweet.id == sweet_id:
                 if sweet.quantity < quantity:
@@ -36,6 +43,7 @@ class SweetService:
                 sweet.quantity -= quantity
                 return
         raise ValueError(f"Sweet with ID {sweet_id} not found")
+
 
     def restock_sweet(self, sweet_id, quantity):
         for sweet in self.sweets:

@@ -141,3 +141,18 @@ def test_sort_sweets_by_quantity_descending():
     sorted_quantities = [sweet.quantity for sweet in sorted_sweets]
 
     assert sorted_quantities == [15, 10, 5]
+    
+def test_add_sweet_with_negative_price_raises_error():
+    service = SweetService()
+    sweet = Sweet(1001, "Kaju Katli", "Nut-Based", -50.0, 10)
+
+    with pytest.raises(ValueError, match="Price must be positive"):
+        service.add_sweet(sweet)
+
+def test_add_sweet_with_zero_quantity_raises_error():
+    service = SweetService()
+    sweet = Sweet(1002, "Rasgulla", "Milk-Based", 25.0, 0)
+
+    with pytest.raises(ValueError, match="Quantity must be positive"):
+        service.add_sweet(sweet)
+
